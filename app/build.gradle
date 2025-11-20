@@ -2,7 +2,10 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
+    namespace "mgarzon.createbest.productcatalog"   // add this line
+
     compileSdkVersion 28
+
     defaultConfig {
         applicationId "mgarzon.createbest.productcatalog"
         minSdkVersion 15
@@ -11,14 +14,13 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
 }
+
 
 dependencies {
 
