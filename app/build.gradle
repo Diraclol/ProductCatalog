@@ -2,35 +2,57 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    namespace "mgarzon.createbest.productcatalog"   // add this line
+    // Package name / namespace for AGP 8.x
+    namespace "mgarzon.createbest.productcatalog"
 
-    compileSdkVersion 28
+    // Must be high enough for modern AGP; 34 works with Build Tools 34
+    compileSdkVersion 34
 
     defaultConfig {
         applicationId "mgarzon.createbest.productcatalog"
         minSdkVersion 15
-        targetSdkVersion 28
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    buildTypes {
+        release {
+            // Keep minify off for this lab project
+            minifyEnabled false
+            // Standard ProGuard config (even if you don't have rules, this is safe)
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+
+    // Compile the code as Java 8 source/bytecode,
+    // even though Gradle itself runs on Java 21.
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_21
-        targetCompatibility JavaVersion.VERSION_21
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
 
 dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Old support libraries – still fine for this lab project
     implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.google.firebase:firebase-database:16.0.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+    // Old Firebase Realtime Database dependency used by this project
+    implementation 'com.google.firebase:firebase-database:16.0.1'
+
     testImplementation 'junit:junit:4.12'
+
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
-
 }
