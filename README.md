@@ -1,4 +1,3 @@
 # ProductCatalog
 Build Status
-[![Build Status](https://circleci.com/gh/SEG2105F18/ProductCatalog.png?branch=master)](https://circleci.com/gh/SEG2105F18/ProductCatalog)
-
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Diraclol/ProductCatalog/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Diraclol/ProductCatalog/tree/master)
